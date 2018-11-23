@@ -26,6 +26,18 @@ Every AWK execution consist of folowing three phases:
    * every `AWK record` is automatically split into `AWK fields` (by default words)
  * `END{ ... }` are actions performed at the end of the execution  *after last text character is read*
 
+### warm-up basic example
+
+```awk
+$ echo -e "AWK is still useful\ntext-processing technology!" | \
+>   awk 'BEGIN{wcnt=0;print "lineno/#words: individual words"}
+>             {printf("% 6d/% 6d: %s\n",NR,NF,$0)}
+>          END{printf("Summary:%d lines/records, %d words/fields\n",NR,wcnt)}'
+lineno/#words: individual words
+     1/     4: AWK is still useful
+     2/     2: text-processing technology!
+Summary:2 lines/records, 0 words/fields
+```
 
 ## Command-line basics
 
