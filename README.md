@@ -95,6 +95,8 @@ Prefer general `awk` before an implementation:
 
 ### AWK programs extension is `*.awk`
 
+General rule of thumb is to create AWK program as a `*.awk` file if equivalent one-liner is not well readable.
+
 ### Code quality
  * comment properly
  * indent similarly as in c/c++ programmimng language
