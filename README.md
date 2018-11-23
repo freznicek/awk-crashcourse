@@ -83,7 +83,7 @@ The important functions are:
    * convert text to lowercase resp. uppercase
 
 ## Learn by examples
-* [Hello world](TODO)
+* [Hello world](examples/hello-world.md)
 
 ## Best practices
 
