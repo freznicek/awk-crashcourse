@@ -10,11 +10,14 @@ AWK language is:
  * syntax is influenced by `c` and `shell` programming languages
  * AWK programs from single line to multiple library files 
  * there are several implementations notably `gawk` and `mawk`
+ * solves generaly same problems as similar text-processing tools `sed`, `grep`, `wc`, `tr`, `printf`, ...
 
 AWK language use-cases are:
- * computing math formulas (based on input)
+ * computing int / floating point math formulas (based on input)
  * general text-processing
- * meta-programming generator for a shell
+   * cutting pieces from input text stream
+   * reformatting input text stream
+ * shell meta-programming generator
 
 ## Processing workflow aka `main()`
 Every AWK execution consist of folowing three phases:
@@ -25,20 +28,50 @@ Every AWK execution consist of folowing three phases:
 
 
 ## Command-line basics
-TODO
+
+* Passing text data to AWK:
+  * from pipe: `cat input-text-data | awk <app>`
+  * from file[s] read by awk itself: `awk <app> input-text-data`
+
+* AWK application execution styles (`-f`):
+  * on command-line `awk '{ ... }' input-text-data`
+  * in separate files `awk -f myapp.awk input-text-data`
+
+* specifying an AWK variable on command-line `-v`
+* specifying `AWK field` separator `FS` via `-F`
 
 
-## Essential variables and functions
-TODO
+## Essential variables
+Most common variables are:
+ * `RS` Specifies the input `AWK record` separator, i.e. how AWK breaks input stream into records
+ * `FS` Specifies the input `AWK field` separator, i.e. how AWk breaks input record into fields.
+ * `OFS` Specifies the output separator, i.e. how AWK print parsed fields to the output stream.
+ * `ORS` Specifies the output separator, i.e. how AWK print parsed records to the output stream.
+ * `FILENAME` contains the name of the input file read by awk
 
-### variables
-TODO
-
-### functions
-TODO
+## Most used functions
+The important functions are:
+ * `print`, `printf()` and `sprintf()`
+   * printing functions
+ * `length()`
+   * lengt of an string argument
+ * `substr()`
+   * splitting string to a substring
+ * `split()`
+   * split string into an array of strings
+ * `index()`
+   * find position of an substring in a string
+ * `index()`
+   * find position of an substring in a string
+ * `sub()` and `gsub()`
+   * (regexp) search and replace (once respectivelly globally)
+ * `~` operator and `match()`
+   * regexp search
+ * `tolower()` and `toupper()`
+   * convert text to lowercase resp. uppercase
 
 ## Learn by examples
-TODO
+* [Hello world](TODO)
 
 ## Best practices
 
