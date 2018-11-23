@@ -84,6 +84,11 @@ The important functions are:
 
 ## Learn by examples
 * [Hello world](examples/hello-world.md)
+* [Word count using wc and awk](examples/word-count.md)
+* [Pattern search using grep and awk](examples/pattern-search.md)
+* [Uniq words in awk](examples/uniq-words.md)
+* [Computing the average](examples/average.md)
+* [Shell metaprogramming with awk](examples/shell-metaprogramming.md)
 
 ## Best practices
 
