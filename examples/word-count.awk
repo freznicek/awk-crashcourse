@@ -8,7 +8,7 @@ BEGIN {
 # at each line actions
 {
   fcnt += NF;
-  bcnt += length($0);
+  bcnt += length($0) + 1;
 }
 
 # actions when text stream read
