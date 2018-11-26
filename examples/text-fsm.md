@@ -4,7 +4,7 @@ Text processing is one of the AWK strong points. [text-fsm.awk](text-fsm.awk) sh
 
 
 ```
-$ kubectl-tt-k8s2-ko describe node | awk -f text-fsm.awk
+$ kubectl describe node | awk -f text-fsm.awk
 Name:               tt-k8s2-************.cz
 Roles:              <none>
 Labels:             beta.kubernetes.io/arch=amd64
@@ -26,7 +26,7 @@ Labels:             beta.kubernetes.io/arch=amd64
 Annotations:        node.alpha.kubernetes.io/ttl=0
                     volumes.kubernetes.io/controller-managed-attach-detach=true
 ...
-                    ```
+```
 
 ## Notes
  * to not reveal internal information terminal output was filled with star characters
