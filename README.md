@@ -66,7 +66,7 @@ Summary:2 lines/records, 6 words/fields
    * integer / long
    * floats
    * associative arrays (including multi-dimensional array support)
- * remote shell execution support
+ * external execution support
  
 ## Essential variables
 Most common variables are:
@@ -133,6 +133,7 @@ General rule of thumb is to create AWK program as a `*.awk` file if equivalent o
 
 ### Pitfalls
  * old awk implementations are very limited (old `awk` and also `nawk`) use one of [recommended ones](https://github.com/freznicek/awesome-awk/blob/master/README.md#nowadays-awk-implementations)
+ * indexing from `1`
  * extended reqular expressions are available just for gawk (and for older version has to be explicitly enabled):
 ```
 $ ps auxwww | gawk  '{if($2~/^[0-9]{1,1}$/){print}}'
