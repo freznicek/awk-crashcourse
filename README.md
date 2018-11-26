@@ -1,3 +1,4 @@
+![AWK birds](pictures/auk.jpg)
 # AWK crashcourse
 
 AWK language course aims to explain AWK in 15 minutes to let you find new tool friend despite it's name.
