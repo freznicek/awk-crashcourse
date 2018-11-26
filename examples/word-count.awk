@@ -7,13 +7,15 @@ BEGIN {
 
 # at each line actions
 {
+  # accumulate the counters
   fcnt += NF;
   bcnt += length($0) + 1;
 }
 
 # actions when text stream read
 END {
-  printf("% 7d\t% 7d\t% 7d\t%s\n", NR, fcnt, bcnt, FILENAME);
+  # print the statistics
+  printf("%d %d %d %s\n", NR, fcnt, bcnt, FILENAME);
 }
 
 # eof
