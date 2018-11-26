@@ -1,6 +1,7 @@
 # Using AWK for debugging and/or testing - memory hungry application
 
 Awk is frequently used in math and debugging environments. As matching example we show memory hungry application [memory-hungry.awk](memory-hungry.awk).
+
 The application code additionally shows:
  * usage of functions
  * usage of external command execution using `system()`
