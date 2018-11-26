@@ -22,7 +22,7 @@ AWK language use-cases are:
 ## Processing workflow aka `main()`
 Every AWK execution consist of folowing three phases:
  * `BEGIN{ ... }` are actions performed at the beginning *before first text character* is read
- * `{ ... }` are actions performed *on every* `AWK record` (default text line)
+ * `[regexp-condition]{ ... }` are actions performed *on every* `AWK record` (default text line)
    * every `AWK record` is automatically split into `AWK fields` (by default words)
  * `END{ ... }` are actions performed at the end of the execution  *after last text character is read*
 
@@ -115,6 +115,23 @@ General rule of thumb is to create AWK program as a `*.awk` file if equivalent o
  * indent similarly as in c/c++ programmimng language
  * use functions
  * stay explicit and thus avoid [awk implicit actions](TODO)
+
+### Pitfalls 
+ * extended reqular expressions are available just for gawk (and for older version has to be explicitly enabled):
+```
+$ ps auxwww | gawk  '{if($2~/^[0-9]{1,1}$/){print}}'
+root         1  0.0  0.0 197064  4196 ?        Ss   Oct31   2:21 /usr/lib/systemd/systemd --switched-root --system --deserialize 24
+root         2  0.0  0.0      0     0 ?        S    Oct31   0:02 [kthreadd]
+root         4  0.0  0.0      0     0 ?        S<   Oct31   0:00 [kworker/0:0H]
+
+$ ps auxwww | gawk --re-interval '{if($2~/^[0-9]{1,1}$/){print}}'
+root         1  0.0  0.0 197064  4196 ?        Ss   Oct31   2:21 /usr/lib/systemd/systemd --switched-root --system --deserialize 24
+root         2  0.0  0.0      0     0 ?        S    Oct31   0:02 [kthreadd]
+root         4  0.0  0.0      0     0 ?        S<   Oct31   0:00 [kworker/0:0H]
+
+$ ps auxwww | mawk '{if($2~/^[0-9]{1,1}$/){print}}'
+
+```
 
 
 ## [Additional resources](https://github.com/freznicek/awesome-awk/blob/master/README.md)
