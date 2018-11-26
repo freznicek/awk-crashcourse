@@ -120,6 +120,7 @@ General rule of thumb is to create AWK program as a `*.awk` file if equivalent o
    * example: `length > 80` should be rather written `'length($0) > 80 { print $0 }'`
 
 ### Pitfalls
+ * old awk implementations are very limited (old `awk` and also `nawk`) use one of [recommended ones](https://github.com/freznicek/awesome-awk/blob/master/README.md#nowadays-awk-implementations)
  * extended reqular expressions are available just for gawk (and for older version has to be explicitly enabled):
 ```
 $ ps auxwww | gawk  '{if($2~/^[0-9]{1,1}$/){print}}'
