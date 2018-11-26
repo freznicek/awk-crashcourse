@@ -90,6 +90,7 @@ The important functions are:
  * [Pattern search using grep and awk](examples/pattern-search-count.md)
  * [Uniq words in awk](examples/uniq-words.md)
  * [Computing the average](examples/average.md)
+ * [Text stream FSM machine](example/text-fsm.md)
  * [Shell metaprogramming with awk](examples/shell-metaprogramming.md)
  * [Why is cut very limited to awk](examples/cut-vs-awk.md)
  * [Memory hungry application](examples/memory-hungry.md)
