@@ -11,8 +11,8 @@ a,b,c,d
 1,2,3,4
 
 $ echo -e "A,B,C,D\na,b,c,d\n1,2,3,4" | \
-    awk -F, 'BEGIN{OFS=";"}
-             NF>3 {$3=$4;NF+=-1;print}'
+    awk 'BEGIN{FS=",";OFS=";";}
+         NF>3 {$3=$4;NF-=1;print;}'
 A;B;D
 a;b;d
 1;2;4
