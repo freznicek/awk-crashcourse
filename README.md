@@ -115,6 +115,7 @@ General rule of thumb is to create AWK program as a `*.awk` file if equivalent o
  * indent similarly as in c/c++ programmimng language
  * use functions
  * stay explicit and thus avoid [awk implicit actions](TODO)
+   * example: `length > 80` should be rather written `'length($0) > 80 { print $0 }'`
 
 ### Pitfalls 
  * extended reqular expressions are available just for gawk (and for older version has to be explicitly enabled):
