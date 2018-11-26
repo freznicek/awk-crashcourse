@@ -6,10 +6,10 @@ AWK language course aims to explain AWK in 15 minutes to let you find new tool f
 ## General language description
 
 AWK language is:
- * (mainly) text processing language 
+ * (mainly) text processing language
  * available on most UNIX-like systems by default, on Windows there is either native binary or cygwin one
  * syntax is influenced by `c` and `shell` programming languages
- * AWK programs from single line to multiple library files 
+ * AWK programs from single line to multiple library files
  * there are several implementations notably `gawk` and `mawk`
  * solves generaly same problems as similar text-processing tools `sed`, `grep`, `wc`, `tr`, `printf`, ...
 
@@ -92,12 +92,13 @@ The important functions are:
  * [Uniq words in awk](examples/uniq-words.md)
  * [Computing the average](examples/average.md)
  * [Text stream FSM machine](examples/text-fsm.md)
+ * [Manipulation with text columns](examples/column-modifications.md)
  * [Shell metaprogramming with awk](examples/shell-metaprogramming.md)
  * [Why is cut very limited to awk](examples/cut-vs-awk.md)
  * [Memory hungry application](examples/memory-hungry.md)
  * [CPU intensive application](examples/cpu-intensive.md)
  * [Profiling AWK application](examples/profiling.md)
- 
+
 
 ## Best practices
 
@@ -118,7 +119,7 @@ General rule of thumb is to create AWK program as a `*.awk` file if equivalent o
  * stay explicit and thus avoid [awk implicit actions](TODO)
    * example: `length > 80` should be rather written `'length($0) > 80 { print $0 }'`
 
-### Pitfalls 
+### Pitfalls
  * extended reqular expressions are available just for gawk (and for older version has to be explicitly enabled):
 ```
 $ ps auxwww | gawk  '{if($2~/^[0-9]{1,1}$/){print}}'
