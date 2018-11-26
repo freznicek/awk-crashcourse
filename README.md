@@ -30,12 +30,14 @@ Every AWK execution consist of folowing three phases:
 
 ```awk
 $ echo -e "AWK is still useful\ntext-processing  technology!" | \
->   awk 'BEGIN{wcnt=0;print "lineno/#words: individual words"}
->             {printf("% 6d/% 6d: %s\n",NR,NF,$0);wcnt+=NF}
->          END{printf("Summary:%d lines/records, %d words/fields\n",NR,wcnt)}'
-lineno/#words: individual words
-     1/     4: AWK is still useful
-     2/     2: text-processing  technology!
+>   awk 'BEGIN{wcnt=0;print "lineno/#words/3rd-word: individual words\n"}
+>             {printf("% 6d/% 6d/% 8s: %s\n",NR,NF,$3,$0);wcnt+=NF}
+>          END{printf("\nSummary:%d lines/records, %d words/fields\n",NR,wcnt)}'
+lineno/#words/3rd-word: individual words
+
+     1/     4/   still: AWK is still useful
+     2/     2/        : text-processing  technology!
+
 Summary:2 lines/records, 6 words/fields
 ```
 
