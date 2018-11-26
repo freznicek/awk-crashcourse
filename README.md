@@ -91,10 +91,10 @@ The important functions are:
  * [Uniq words in awk](examples/uniq-words.md)
  * [Computing the average](examples/average.md)
  * [Shell metaprogramming with awk](examples/shell-metaprogramming.md)
- * [Why is cut very limited to awk](examples/cut-vs-awk.awk)
- * [Memory hungry application](examples/memory-hungry.awk)
- * [CPU intensive application](examples/cpu-intensive.awk)
- * [Profiling AWK application](examples/profiling.awk)
+ * [Why is cut very limited to awk](examples/cut-vs-awk.md)
+ * [Memory hungry application](examples/memory-hungry.md)
+ * [CPU intensive application](examples/cpu-intensive.md)
+ * [Profiling AWK application](examples/profiling.md)
  
 
 ## Best practices
