@@ -23,21 +23,24 @@ AWK language use-cases are:
 ## Processing workflow aka `main()`
 Every AWK execution consist of folowing three phases:
  * `BEGIN{ ... }` are actions performed at the beginning *before first text character* is read
+   * normally single set-up block
  * `[regexp-condition]{ ... }` are actions performed *on every* `AWK record` (default text line)
    * every `AWK record` is automatically split into `AWK fields` (by default words)
+   * typically multiple blocks
  * `END{ ... }` are actions performed at the end of the execution  *after last text character is read*
+   * normally single tear-down block
 
 ### warm-up basic example
 
 ```awk
 $ echo -e "AWK is still useful\ntext-processing  technology!" | \
->   awk 'BEGIN{wcnt=0;print "lineno/#words/3rd-word: individual words\n"}
->             {printf("% 6d/% 6d/% 8s: %s\n",NR,NF,$3,$0);wcnt+=NF}
+>   awk 'BEGIN{wcnt=0;print "lineno/#words/3rd-word:individual words\n"}
+>             {printf("% 6d/% 6d/% 8s:%s\n",NR,NF,$3,$0);wcnt+=NF}
 >          END{print "\nSummary:", NR, "lines/records,", wcnt, "words/fields"}'
-lineno/#words/3rd-word: individual words
+lineno/#words/3rd-word:individual words
 
-     1/     4/   still: AWK is still useful
-     2/     2/        : text-processing  technology!
+     1/     4/   still:AWK is still useful
+     2/     2/        :text-processing  technology!
 
 Summary:2 lines/records, 6 words/fields
 ```
@@ -55,14 +58,23 @@ Summary:2 lines/records, 6 words/fields
 * specifying an AWK variable on command-line `-v`
 * specifying `AWK field` separator `FS` via `-F`
 
-
+## Language characteristics
+ * text processing functions
+ * regular expression support
+ * math functions
+ * dynamic typing, support for
+   * integer / long
+   * floats
+   * associative arrays (including multi-dimensional array support)
+ * remote shell execution support
+ 
 ## Essential variables
 Most common variables are:
- * `RS` Specifies the input `AWK record` separator, i.e. how AWK breaks input stream into records
- * `FS` Specifies the input `AWK field` separator, i.e. how AWk breaks input record into fields.
- * `OFS` Specifies the output separator, i.e. how AWK print parsed fields to the output stream.
- * `ORS` Specifies the output separator, i.e. how AWK print parsed records to the output stream.
- * `FILENAME` contains the name of the input file read by awk
+ * `RS` Specifies the input `AWK record` separator, i.e. how AWK breaks input stream into records (default: a whitespace).
+ * `FS` Specifies the input `AWK field` separator, i.e. how AWK breaks input record into fields (default: an universal line break).
+ * `OFS` Specifies the output separator, i.e. how AWK print parsed fields to the output stream using `print()` (default: single space).
+ * `ORS` Specifies the output separator, i.e. how AWK print parsed records to the output stream using `print()` (default: line break)
+ * `FILENAME` contains the name of the input file read by awk (read only global variable)
 
 ## Most used functions
 The important functions are:
