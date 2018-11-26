@@ -2,7 +2,7 @@
 
 [Metaprogramming](https://en.wikipedia.org/wiki/Metaprogramming) is a technique how to treat program as the data to be able to create / modify program at runtime.
 
-We'are going to cover few scenarios how to generate shell code at runtime meeting desired needs.
+This example is going to cover few scenarios how to generate shell code at runtime meeting desired needs.
 
 ## Renaming files
 
@@ -14,7 +14,7 @@ ls *.mp3| \
   sh
 ```
 
-### transcript
+### transcript step-by-step
 
 ```
 $ ll 1*.mp3
@@ -50,14 +50,14 @@ $ ll 1*.mp3
 
 Assume situation when you want to delete files based on file-list provided by `find` execution and additional condition.
 
-### [A] find can handle all alone but without an additional condition
+### [A] find can handle deletion alone but without an additional condition
 
 ```sh
 # let's delete /tmp/...*.log older than 10 minutes
 $ find /tmp -maxdepth 3 -name "*.log" -mmin "+10" -delete
 ```
 
-### [B] find + grep + xargs can handle the additional condition
+### [B] find & grep & xargs can handle the additional condition
 
 ```sh
 # let's delete /tmp/...*.log older than 10 minutes which are having hard link count == 1
@@ -65,7 +65,7 @@ $ find /tmp -maxdepth 3 -name "*.log" -mmin "+10" -printf "%n;%p\n" | \
     grep -E "^1;" | xargs
 ```
 
-### [C] find + awk + sh can handle the additional conditions
+### [C] find & awk & sh can handle also additional conditions / functionality
 
 ```sh
 # let's delete /tmp/...*.log older than 10 minutes which are having hard link count == 1 and we know how many of them we deleted
