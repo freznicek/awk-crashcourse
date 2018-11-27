@@ -41,6 +41,8 @@ Every AWK execution consist of folowing three phases:
  * `END{ ... }` are actions performed at the end of the execution  *after last text character is read*
    * normally single tear-down block
 
+![AWK process flow](pictures/awk-process-flow.jpg)
+
 ### warm-up basic example
 
 ```awk
