@@ -5,12 +5,12 @@ AWK language course aims to explain AWK in 15 minutes to let you find new tool f
 
 ## General language description
 
-AWK language is:
+AWK language (is):
  * (mainly) text processing language
  * available on most UNIX-like systems by default, on Windows there is either native binary or cygwin one
  * syntax is influenced by `c` and `shell` programming languages
- * AWK programs from single line to multiple library files
- * there are several implementations notably `gawk` and `mawk`
+ * programs from single line to multiple library files
+ * several implementations available, notably `gawk` and `mawk`
  * solves generaly same problems as similar text-processing tools `sed`, `grep`, `wc`, `tr`, `printf`, ...
 
 AWK language use-cases are:
@@ -19,6 +19,17 @@ AWK language use-cases are:
    * cutting pieces from input text stream
    * reformatting input text stream
  * shell meta-programming generator
+
+AWK language capabilities:
+ * text processing functions
+ * regular expression support
+ * math functions
+ * dynamic typing, support for
+   * integer / long
+   * floats
+   * associative arrays (including multi-dimensional array support)
+ * external execution support
+
 
 ## Processing workflow aka `main()`
 Every AWK execution consist of folowing three phases:
@@ -57,16 +68,6 @@ Summary:2 lines/records, 6 words/fields
 
 * specifying an AWK variable on command-line `-v`
 * specifying `AWK field` separator `FS` via `-F`
-
-## Language characteristics
- * text processing functions
- * regular expression support
- * math functions
- * dynamic typing, support for
-   * integer / long
-   * floats
-   * associative arrays (including multi-dimensional array support)
- * external execution support
  
 ## Essential variables
 Most common variables are:
@@ -131,23 +132,20 @@ General rule of thumb is to create AWK program as a `*.awk` file if equivalent o
 
 ### Pitfalls
  * old awk implementations are very limited (old `awk` and also `nawk`) use one of [recommended ones](https://github.com/freznicek/awesome-awk/blob/master/README.md#nowadays-awk-implementations)
- * indexing from `1`
+ * indexing from `1` (`index()`, `split()`, `$i`, ...)
  * extended reqular expressions are available just for gawk (and for older version has to be explicitly enabled):
 ```
 $ ps auxwww | gawk  '{if($2~/^[0-9]{1,1}$/){print}}'
 root         1  0.0  0.0 197064  4196 ?        Ss   Oct31   2:21 /usr/lib/systemd/systemd --switched-root --system --deserialize 24
-root         2  0.0  0.0      0     0 ?        S    Oct31   0:02 [kthreadd]
 root         4  0.0  0.0      0     0 ?        S<   Oct31   0:00 [kworker/0:0H]
 
 $ ps auxwww | gawk --re-interval '{if($2~/^[0-9]{1,1}$/){print}}'
 root         1  0.0  0.0 197064  4196 ?        Ss   Oct31   2:21 /usr/lib/systemd/systemd --switched-root --system --deserialize 24
-root         2  0.0  0.0      0     0 ?        S    Oct31   0:02 [kthreadd]
 root         4  0.0  0.0      0     0 ?        S<   Oct31   0:00 [kworker/0:0H]
 
 $ ps auxwww | mawk '{if($2~/^[0-9]{1,1}$/){print}}'
 
 ```
-
 
 ## [Additional resources](https://github.com/freznicek/awesome-awk/blob/master/README.md)
 
