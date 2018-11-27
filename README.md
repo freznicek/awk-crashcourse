@@ -88,8 +88,6 @@ The important functions are:
    * split string into an array of strings
  * `index()`
    * find position of an substring in a string
- * `index()`
-   * find position of an substring in a string
  * `sub()` and `gsub()`
    * (regexp) search and replace (once respectivelly globally)
  * `~` operator and `match()`
