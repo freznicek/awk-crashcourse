@@ -139,7 +139,7 @@ General rule of thumb is to create AWK program as a `*.awk` file if equivalent o
  * old awk implementations are very limited (old `awk` and also `nawk`) use one of [recommended ones](https://github.com/freznicek/awesome-awk/blob/master/README.md#nowadays-awk-implementations)
  * indexing from `1` (`index()`, `split()`, `$i`, ...)
  * GNU AWK implementations understand localization & utf-8/unicode and thus replacing with `[g]sub()` can lead in unwanted behavior unless you force awk to drop such support via exporting environment variable `LC_ALL=C`
-   * not all other awk implementations support utf-8/unicode to my knowledge (test with `echo "Zřetelně" | awk '{print tolower($0)}'`)
+   * not all other awk implementations support utf-8/unicode to my knowledge (test with `echo "Zřetelně" | [gm]awk '{print toupper($0)}'`)
  * extended reqular expressions are available just for gawk (and for older version has to be explicitly enabled):
 ```
 $ ps auxwww | gawk  '{if($2~/^[0-9]{1,1}$/){print}}'
