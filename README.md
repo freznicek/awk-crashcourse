@@ -113,6 +113,7 @@ The important functions are:
  * [Memory hungry application](examples/memory-hungry.md)
  * [CPU intensive application](examples/cpu-intensive.md)
  * [Profiling AWK application](examples/profiling.md)
+ * [GNU AWK network programing](examples/gawk-web-server.md)
 
 
 ## Best practices
