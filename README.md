@@ -34,12 +34,12 @@ AWK language capabilities:
 ## Processing workflow aka `main()`
 Every AWK execution consist of folowing three phases:
  * [1] `BEGIN{ ... }` are actions performed at the beginning *before first text character* is read
-   * normally single set-up block
+   * multiple blocks allowed (normally single)
  * [2] `[regexp-condition]{ ... }` are actions performed *on every* `AWK record` (default text line)
    * every `AWK record` is automatically split into `AWK fields` (by default words)
-   * typically multiple blocks
+   * multiple blocks allowed
  * [3] `END{ ... }` are actions performed at the end of the execution  *after last text character is read*
-   * normally single tear-down block
+   * multiple blocks allowed (normally single)
 
 ![AWK process flow](pictures/awk-process-flow.gif)
 
