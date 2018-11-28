@@ -18,10 +18,10 @@ AWK language use-cases are:
  * general text-processing
    * cutting pieces from input text stream
    * reformatting input text stream
- * shell meta-programming generator
+ * (shell) meta-programming generator
 
 AWK language capabilities:
- * text processing functions
+ * text-processing functions
  * regular expression support
  * math functions
  * dynamic typing, support for
@@ -70,11 +70,11 @@ Summary:2 lines/records, 6 words/fields
   * on command-line `awk '{ ... }' input-text-data`
   * in separate files `awk -f myapp.awk input-text-data`
 
-* specifying an AWK variable on command-line `-v`
-* specifying `AWK field` separator `FS` via `-F`
+* specifying an AWK variable on command-line `-v var=val`
+* specifying `AWK field` separator `FS` variable or `-F <FS>` switch
  
 ## Essential variables
-Most common variables are:
+Most common AWK variables are:
  * `RS` Specifies the input `AWK record` separator, i.e. how AWK breaks input stream into records (default: a whitespace).
  * `FS` Specifies the input `AWK field` separator, i.e. how AWK breaks input record into fields (default: an universal line break).
  * `OFS` Specifies the output separator, i.e. how AWK print parsed fields to the output stream using `print()` (default: single space).
@@ -82,7 +82,7 @@ Most common variables are:
  * `FILENAME` contains the name of the input file read by awk (read only global variable)
 
 ## Most used functions
-The important functions are:
+The important AWK functions are:
  * `print`, `printf()` and `sprintf()`
    * printing functions
  * `length()`
@@ -120,7 +120,7 @@ The important functions are:
 
 ### Portability
 
-Prefer general `awk` before an implementation:
+Prefer general `awk` before an specific AWK implementation:
  * use general `awk` for portable programs
  * otherwise use the particular implementation e.g. `gawk`
 
@@ -130,15 +130,15 @@ General rule of thumb is to create AWK program as a `*.awk` file if equivalent o
 
 ### Code quality
  * comment properly
- * indent similarly as in c/c++ programmimng language
- * use functions
- * stay explicit and thus avoid [awk implicit actions](TODO)
+ * indent similarly as in c/c++ programmimng languages
+ * use functions whenever possible
+ * stay explicit avoiding [awk implicit actions](TODO) which make AWK application hard to understand
    * example: `length > 80` should be rather written `'length($0) > 80 { print $0 }'`
 
 ### Pitfalls
- * old awk implementations are very limited (old `awk` and also `nawk`) use one of [recommended ones](https://github.com/freznicek/awesome-awk/blob/master/README.md#nowadays-awk-implementations)
- * indexing from `1` (`index()`, `split()`, `$i`, ...)
- * GNU AWK implementation understand localization & utf-8/unicode and thus replacing with `[g]sub()` can lead in unwanted behavior unless you force awk to drop such support via exporting environment variable `LC_ALL=C`
+ * old awk implementations are limited (old `awk` and also `nawk`) use one of [recommended ones](https://github.com/freznicek/awesome-awk/blob/master/README.md#nowadays-awk-implementations)
+ * string / array indexing from `1` (`index()`, `split()`, `$i`, ...)
+ * GNU AWK implementation understand localization & utf-8/unicode and thus replacing with `[g]sub()` can lead to unwanted behavior unless you force gawk to drop such support via exporting environment variable `LC_ALL=C`
    * not all other awk implementations support utf-8/unicode to my knowledge (test with `echo "Zřetelně" | [gm]awk '{print toupper($0)}'`)
  * extended reqular expressions are available just for gawk (and for older version has to be explicitly enabled):
 ```
