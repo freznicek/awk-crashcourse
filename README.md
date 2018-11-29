@@ -75,8 +75,8 @@ Summary:2 lines/records, 6 words/fields
  
 ## Global variables
 [Global variables are documented here](https://www.gnu.org/software/gawk/manual/html_node/User_002dmodified.html), most common ones are:
- * `RS` Specifies the input `AWK record` separator, i.e. how AWK breaks input stream into records (default: a whitespace).
- * `FS` Specifies the input `AWK field` separator, i.e. how AWK breaks input record into fields (default: an universal line break).
+ * `FS` Specifies the input `AWK field` separator, i.e. how AWK breaks input record into fields (default: a whitespace).
+ * `RS` Specifies the input `AWK record` separator, i.e. how AWK breaks input stream into records (default: an universal line break).
  * `OFS` Specifies the output separator, i.e. how AWK print parsed fields to the output stream using `print()` (default: single space).
  * `ORS` Specifies the output separator, i.e. how AWK print parsed records to the output stream using `print()` (default: line break)
  * `FILENAME` contains the name of the input file read by awk (read only global variable)
