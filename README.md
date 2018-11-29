@@ -35,7 +35,7 @@ AWK language capabilities:
 Every AWK execution consist of folowing three phases:
  * [1] `BEGIN{ ... }` are actions performed at the beginning *before first text character* is read
    * multiple blocks allowed (normally single)
- * [2] `[regexp-condition]{ ... }` are actions performed *on every* `AWK record` (default text line)
+ * [2] `[condition]{ ... }` are actions performed *on every* `AWK record` (default text line)
    * every `AWK record` is automatically split into `AWK fields` (by default words)
    * multiple blocks allowed
  * [3] `END{ ... }` are actions performed at the end of the execution  *after last text character is read*
@@ -82,7 +82,7 @@ Most common AWK variables are:
  * `FILENAME` contains the name of the input file read by awk (read only global variable)
 
 ## Most used functions
-The important AWK functions are:
+[AWK functions are documented](https://www.gnu.org/software/gawk/manual/html_node/Functions.html), the most important ones are:
  * `print`, `printf()` and `sprintf()`
    * printing functions
  * `length()`
@@ -132,14 +132,30 @@ General rule of thumb is to create AWK program as a `*.awk` file if equivalent o
  * comment properly
  * indent similarly as in c/c++ programmimng languages
  * use functions whenever possible
- * stay explicit avoiding [awk implicit actions](TODO) which make AWK application hard to understand
-   * example: `length > 80` should be rather written `'length($0) > 80 { print $0 }'`
+ * stay explicit avoiding [awk default (implicit) actions](https://www.gnu.org/software/gawk/manual/html_node/Intro-Summary.html#Intro-Summary) which make AWK application hard to understand
+   * example: `length > 80` should be rather written `'length($0) > 80 { print }'` or `'length($0) > 80 { print $0 }'`
 
 ### Pitfalls
+ * don't forget to always use apostrophe `'` quotation when writing awk oneline applications to avoid shell expansion (for instance `$1`)
+   * `awk "{print $1}"` should be `awk '{print $1}'`
  * old awk implementations are limited (old `awk` and also `nawk`) use one of [recommended ones](https://github.com/freznicek/awesome-awk/blob/master/README.md#nowadays-awk-implementations)
  * string / array indexing from `1` (`index()`, `split()`, `$i`, ...)
  * GNU AWK implementation understand localization & utf-8/unicode and thus replacing with `[g]sub()` can lead to unwanted behavior unless you force gawk to drop such support via exporting environment variable `LC_ALL=C`
-   * not all other awk implementations support utf-8/unicode to my knowledge (test with `echo "Zřetelně" | [gm]awk '{print toupper($0)}'`)
+   * other awk implementations does not support utf-8/unicode
+```
+# awk implementation versions
+GNU Awk 4.1.3, API: 1.1 (GNU MPFR 3.1.5, GNU MP 6.1.1)
+mawk 1.3.4 20161107
+BusyBox v1.22.1 (2016-02-03 18:22:11 UTC) multi-call binary.
+
+$ echo "Zřetelně" | gawk '{print toupper($0)}'
+ZŘETELNĚ
+$ echo "Zřetelně" | mawk '{print toupper($0)}'
+ZřETELNě
+$ echo "Zřetelně" | busybox awk '{print toupper($0)}'
+ZřETELNě
+
+```
  * extended reqular expressions are available just for gawk (and for older version has to be explicitly enabled):
 ```
 $ ps auxwww | gawk  '{if($2~/^[0-9]{1,1}$/){print}}'
