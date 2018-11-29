@@ -73,15 +73,15 @@ Summary:2 lines/records, 6 words/fields
 * specifying an AWK variable on command-line `-v var=val`
 * specifying `AWK field` separator `FS` variable or `-F <FS>` switch
  
-## Essential variables
-Most common AWK variables are:
+## Global variables
+[Global variables are documented here](https://www.gnu.org/software/gawk/manual/html_node/User_002dmodified.html), most common ones are:
  * `RS` Specifies the input `AWK record` separator, i.e. how AWK breaks input stream into records (default: a whitespace).
  * `FS` Specifies the input `AWK field` separator, i.e. how AWK breaks input record into fields (default: an universal line break).
  * `OFS` Specifies the output separator, i.e. how AWK print parsed fields to the output stream using `print()` (default: single space).
  * `ORS` Specifies the output separator, i.e. how AWK print parsed records to the output stream using `print()` (default: line break)
  * `FILENAME` contains the name of the input file read by awk (read only global variable)
 
-## Most used functions
+## Buildin functions
 [AWK functions are documented](https://www.gnu.org/software/gawk/manual/html_node/Functions.html), the most important ones are:
  * `print`, `printf()` and `sprintf()`
    * printing functions
