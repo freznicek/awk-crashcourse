@@ -1,7 +1,7 @@
 ![AWK birds](pictures/auk.jpg)
 # AWK crashcourse
 
-AWK language course aims to explain AWK in 15 minutes to let you find new tool friend despite it's name.
+AWK language course aims to explain AWK in 15 minutes to let you find [awesome tool friend](https://github.com/freznicek/awesome-awk) despite it's given name.
 
 ## General language description
 
@@ -11,7 +11,7 @@ AWK language (is):
  * syntax is influenced by `c` and `shell` programming languages
  * programs from single line to multiple library files
  * several implementations available, notably `gawk` and `mawk`
- * solves generaly same problems as similar text-processing tools `sed`, `grep`, `wc`, `tr`, `printf`, ...
+ * solves generaly same problems as similar text-processing tools `sed`, `grep`, `wc`, `tr`, `cut`, `printf`, `tail`, `head`, `cat`, `tac`, `bc`, ...
 
 AWK language use-cases are:
  * computing int / floating point math formulas (based on input)
@@ -76,7 +76,7 @@ Summary:2 lines/records, 6 words/fields
 ## Global variables
 [Global variables are documented here](https://www.gnu.org/software/gawk/manual/html_node/User_002dmodified.html), most common ones are:
  * `$0` value of current `AWK record` (whole line without line-break)
- * `$1`, `$2`, ... `$NF` values of first, second, ... last `AWK field` (word)
+   * `$1`, `$2`, ... `$NF` values of first, second, ... last `AWK field` (word)
  * `FS` Specifies the input `AWK field` separator, i.e. how AWK breaks input record into fields (default: a whitespace).
  * `RS` Specifies the input `AWK record` separator, i.e. how AWK breaks input stream into records (default: an universal line break).
  * `OFS` Specifies the output separator, i.e. how AWK print parsed fields to the output stream using `print()` (default: single space).
@@ -160,7 +160,7 @@ ZřETELNě
 ```
  * extended reqular expressions are available just for gawk (and for older version has to be explicitly enabled):
 ```
-$ ps auxwww | gawk  '{if($2~/^[0-9]{1,1}$/){print}}'
+$ ps auxwww | gawk '{if($2~/^[0-9]{1,1}$/){print}}'
 root         1  0.0  0.0 197064  4196 ?        Ss   Oct31   2:21 /usr/lib/systemd/systemd --switched-root --system --deserialize 24
 root         4  0.0  0.0      0     0 ?        S<   Oct31   0:00 [kworker/0:0H]
 
@@ -169,7 +169,7 @@ root         1  0.0  0.0 197064  4196 ?        Ss   Oct31   2:21 /usr/lib/system
 root         4  0.0  0.0      0     0 ?        S<   Oct31   0:00 [kworker/0:0H]
 
 $ ps auxwww | mawk '{if($2~/^[0-9]{1,1}$/){print}}'
-
+$
 ```
 
 ## [Additional resources](https://github.com/freznicek/awesome-awk/blob/master/README.md)
