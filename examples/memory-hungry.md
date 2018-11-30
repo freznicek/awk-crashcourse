@@ -18,4 +18,4 @@ index:     400, allocated:     78.32 MByte[s], last index keeps:     0.4 MByte[s
 ```
 
 Notes:
-* it is recommended to always use -v limit_bytes=<int> awk parameter when running this example
+* it is recommended to always use `-v limit_bytes=<int>` awk parameter when running this example unless your system soon gets out of free memory
