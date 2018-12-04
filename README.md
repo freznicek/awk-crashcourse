@@ -11,7 +11,7 @@ AWK language (is):
  * syntax is influenced by `c` and `shell` programming languages
  * programs from single line to multiple library files
  * several implementations available, notably `gawk` and `mawk`
- * solves generaly same problems as similar text-processing tools `sed`, `grep`, `wc`, `tr`, `cut`, `printf`, `tail`, `head`, `cat`, `tac`, `bc`, ...
+ * solves generaly same problems as similar text-processing tools `sed`, `grep`, `wc`, `tr`, `cut`, `printf`, `tail`, `head`, `cat`, `tac`, `bc`, `column`, ...
 
 AWK language use-cases are:
  * computing int / floating point math formulas (based on input)
@@ -126,9 +126,11 @@ Prefer general `awk` before an specific AWK implementation:
  * use general `awk` for portable programs
  * otherwise use the particular implementation e.g. `gawk`
 
-### AWK programs extension is `*.awk`
+### AWK programs extension and readability
 
 General rule of thumb is to create AWK program as a `*.awk` file if equivalent one-liner is not well readable.
+
+If you have troubles to understand one line awk program then feel free to use GNU AWK's [profiling functionality](examples/profiling.md) i.e. `-p` option to receive pretty printed AWK code (in `awkprof.out`).
 
 ### Code quality
  * comment properly
