@@ -63,12 +63,12 @@ Summary:2 lines/records, 6 words/fields
 ## Command-line basics
 
 * Passing text data to AWK:
-  * from pipe: `cat input-text-data | awk <app>`
-  * from file[s] read by awk itself: `awk <app> input-text-data`
+  * from pipe: `cat input-data.txt | awk <app>`
+  * from file[s] read by awk itself: `awk <app> input-data.txt`
 
 * AWK application execution styles (`-f`):
-  * on command-line `awk '{ ... }' input-text-data`
-  * in separate files `awk -f myapp.awk input-text-data`
+  * on command-line `awk '{ ... }' input-data.txt`
+  * in separate files `awk -f myapp.awk input-data.txt`
 
 * specifying an AWK variable on command-line `-v var=val`
 * specifying `AWK field` separator `FS` variable or `-F <FS>` switch
@@ -145,7 +145,7 @@ If you have troubles to understand one line awk program then feel free to use GN
  * old awk implementations are limited (old `awk` and also `nawk`) use one of [recommended ones](https://github.com/freznicek/awesome-awk/blob/master/README.md#nowadays-awk-implementations)
  * string / array indexing from `1` (`index()`, `split()`, `$i`, ...)
  * GNU AWK implementation understand localization & utf-8/unicode and thus replacing with `[g]sub()` can lead to unwanted behavior unless you force gawk to drop such support via exporting environment variable `LC_ALL=C`
-   * other awk implementations does not support utf-8/unicode
+   * other awk implementations may not support utf-8/unicode:
 ```
 # awk implementation versions
 GNU Awk 4.1.3, API: 1.1 (GNU MPFR 3.1.5, GNU MP 6.1.1)
