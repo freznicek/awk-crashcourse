@@ -1,6 +1,6 @@
 # GAWK profiling
 
-GNU AWK is able to profile the executed code (switch `-p`). The profiling report is written at the application tear-down.
+GNU AWK is able to profile and pretty print the executed code (`gawk -p`, previously as separate executable `pgawk`). The profiling report is written at the application tear-down into `awkprof.out` file.
 
 Profiling is particulary useful when you're debugging test FSM applications. See details below.
 
@@ -50,6 +50,6 @@ $ cat awkprof.out
 ```
 
 ## Notes
- * this functionality is available in GNU AWK `gawk` only
+ * this functionality is available in GNU AWK `gawk` or `pgawk` only
  * profiling report is empty if `gawk` is interrupted by a signal
  
