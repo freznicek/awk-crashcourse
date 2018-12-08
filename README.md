@@ -1,7 +1,7 @@
 ![AWK birds](pictures/auk.jpg)
 # AWK crashcourse
 
-AWK language course aims to explain AWK in 15 minutes to let you find [awesome tool friend](https://github.com/freznicek/awesome-awk) despite it's given name.
+AWK language course aims to explain AWK in 15 minutes to let you find [awesome tool friend](https://github.com/freznicek/awesome-awk) despite it's given name. The correct pronunciation is [[auk] after smaller seabirds Parakeet auklets](https://en.wikipedia.org/wiki/Auk).
 
 ## General language description
 
