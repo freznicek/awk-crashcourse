@@ -114,7 +114,7 @@ Summary:2 lines/records, 6 words/fields
  * [Why is cut very limited to awk](examples/cut-vs-awk.md)
  * [Memory hungry application](examples/memory-hungry.md)
  * [CPU intensive application](examples/cpu-intensive.md)
- * [Profiling AWK application](examples/profiling.md)
+ * [Debugging / profiling AWK application](examples/profiling.md)
  * [GNU AWK network programing](examples/gawk-web-server.md)
 
 
