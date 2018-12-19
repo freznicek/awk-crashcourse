@@ -116,6 +116,7 @@ Summary:2 lines/records, 6 words/fields
  * [CPU intensive application](examples/cpu-intensive.md)
  * [Debugging / profiling AWK application](examples/profiling.md)
  * [GNU AWK network programing](examples/gawk-web-server.md)
+ * [30 seconds of AWK code](https://github.com/freznicek/30-seconds-of-awk-code/blob/master/README.md)
 
 
 ## Best practices
