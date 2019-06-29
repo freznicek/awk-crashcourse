@@ -88,7 +88,7 @@ Summary:2 lines/records, 6 words/fields
  * `print`, `printf()` and `sprintf()`
    * printing functions
  * `length()`
-   * lengt of an string argument
+   * length of an string argument
  * `substr()`
    * splitting string to a substring
  * `split()`
