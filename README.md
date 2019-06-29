@@ -143,7 +143,7 @@ If you have troubles to understand one line awk program then feel free to use GN
 ### Pitfalls
  * don't forget to always use apostrophe `'` quotation when writing awk oneline applications to avoid shell expansion (for instance `$1`)
    * `awk "{print $1}"` should be `awk '{print $1}'`
- * old awk implementations are limited (old `awk` and also `nawk`) use one of [recommended ones](https://github.com/freznicek/awesome-awk/blob/master/README.md#nowadays-awk-implementations)
+ * use one of the [recommended implementations](https://github.com/freznicek/awesome-awk/blob/master/README.md#nowadays-awk-implementations) as old implementations are quite limited (old `awk` or `nawk`)
  * string / array indexing from `1` (`index()`, `split()`, `$i`, ...)
  * GNU AWK implementation understand localization & utf-8/unicode and thus replacing with `[g]sub()` can lead to unwanted behavior unless you force gawk to drop such support via exporting environment variable `LC_ALL=C`
    * other awk implementations may not support utf-8/unicode:
