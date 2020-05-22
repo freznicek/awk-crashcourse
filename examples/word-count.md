@@ -16,7 +16,7 @@ $ ps auxww > /tmp/ps.log
 $ wc  /tmp/ps.log
   389  4737 37752 /tmp/ps.log
 
-$ awk -f word-count.awk  /tmp/ps.log
+$ gawk -f word-count.awk  /tmp/ps.log
   389  4737  37752 /tmp/ps.log
 ```
 
