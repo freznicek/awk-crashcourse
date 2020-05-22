@@ -11,14 +11,14 @@ BEGIN {
 # at each line actions
 {
   # accumulate the counters
-  fcnt += NF;
-  bcnt += length($0) + length(RT);
+  field_cnt += NF;
+  byte_cnt += length($0) + length(RT);
 }
 
 # actions when text stream read
 END {
   # print the statistics
-  printf("%d %d %d %s\n", NR, fcnt, bcnt, FILENAME);
+  printf("%d %d %d %s\n", NR, field_cnt, byte_cnt, FILENAME);
 }
 
 # eof
