@@ -4,7 +4,8 @@
 # actions before reading text stream
 BEGIN {
   fcnt = bcnt = 0;
-  RS="(\n|\n\r|\r\n)"; # gawk extension
+  # Linux, OSX: LF; Windows: CR LF; old Mac CR
+  RS="(\n|\r\n|\r)"; # gawk extension
 }
 
 # at each line actions
